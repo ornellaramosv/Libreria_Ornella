@@ -1,9 +1,8 @@
 # Topicos Especiales - Node js
 
 Taller # 1
-Ornella Tatiana Ramos Velandia
-Universidad Del Norte
-2018
+Ornella Tatiana Ramos Velandia - Universidad Del Norte
+
 
 ### Requisitos Previos
 
@@ -33,13 +32,13 @@ npm start
 
 ### Documentacion
 
-* GET `/libros` : Obtienes en formato JSON todos los libros almacenados en memoria.
+* GET `/anuncios` : Obtienes en formato JSON todos los anuncios almacenados en memoria.
 
-* GET `/libro/:id` : Obtienes en formato JSON el libro correspondiente al :id enviado como parametro en la url.
+* GET `/anuncio/:id` : Obtienes en formato JSON el libro correspondiente al :id enviado como parametro en la url.
 	* **Parametros URL**
 	`id=[integer]`
 
-* POST `/libro` : Crea un nuevo libro en memoria.
+* POST `/anuncio` : Crea un nuevo anuncio en memoria.
 	* **Parametros a enviar**
 	```json
 	contenido=[string]
@@ -56,7 +55,7 @@ npm start
 	}
 	 ```
 
-* PUT `/actualizar/:id` : Edita el libro correspondiente al :id enviado como parametro en la url.
+* PUT `/actualizar/:id` : Edita el anuncio correspondiente al :id enviado como parametro en la url.
 	* **Parametros URL**
 	`id=[integer]`
 
@@ -76,7 +75,7 @@ npm start
 	}
 	 ```
 
-* DELETE `/borrar/:id` : Elimina el libro guardado en memoria.
+* DELETE `/borrar/:id` : Elimina el anuncio guardado en memoria.
 	* **Parametros URL**
 	`id=[integer]`
 
