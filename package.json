@@ -1,0 +1,20 @@
+{
+  "name": "twitter_ornella",
+  "version": "1.0.0",
+  "description": "Taller 1 - Topicos especiales",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ornella Tatiana Ramos Velandia",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "moment": "^2.20.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.11"
+  }
+}
