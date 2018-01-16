@@ -4,7 +4,7 @@ const acciones = require("express").Router();
 let moment = require("moment");
 
 /*Creacion BD Temporal*/
-let BD_LIBROS = [
+let BD_ANUNCIO = [
 	{
 		id: 1,
 		contenido: "Libro de ciencia ficcion: Ready Player One",
@@ -47,14 +47,14 @@ let BD_LIBROS = [
 	}
 ];
 
-/*Consultar todos los libros*/
-acciones.get("/libros", (req, res, next) => {
-  res.json(BD_LIBROS);
+/*Consultar todos los anuncios*/
+acciones.get("/anuncios", (req, res, next) => {
+  res.json(BD_ANUNCIO);
 });
 
-/*Consultar un libro*/
-acciones.get("/libro/:id", (req, res, next) => {
-  let busqueda = BD_LIBROS.find(function(element) {
+/*Consultar un anuncios*/
+acciones.get("/anuncio/:id", (req, res, next) => {
+  let busqueda = BD_ANUNCIO.find(function(element) {
     return element.id == req.params.id;
   });
 
@@ -87,9 +87,9 @@ acciones.post("/publicar",(req,res,next) => {
 		return;
 	}
 
-	let previo=BD_LIBROS.length;
+	let previo=BD_ANUNCIO.length;
 	let temp_libro = {
-		id: (BD_LIBROS.length > 0) ? BD_LIBROS[BD_LIBROS.length-1].id + 1 : 1,
+		id: (BD_ANUNCIO.length > 0) ? BD_ANUNCIO[BD_ANUNCIO.length-1].id + 1 : 1,
 		contenido: req.body.contenido,
 		autor: req.body.autor,
 		ubicacion: req.body.ubicacion,
@@ -97,10 +97,10 @@ acciones.post("/publicar",(req,res,next) => {
 		fec_edi: moment().format()
 	}
 
-  let nueva_dimension = BD_LIBROS.push(temp_libro)
+  let nueva_dimension = BD_ANUNCIO.push(temp_libro)
 
 	if (nueva_dimension>previo) {
-   res.json({message: `Libro guardado correctamente.`})
+   res.json({message: `anuncio guardado correctamente.`})
   }else{
    res.json({error: `Error al guardar, favor verificar.`})
  	}
@@ -109,16 +109,16 @@ acciones.post("/publicar",(req,res,next) => {
 /*Actualizar Libro*/
 acciones.put("/actualizar/:id",(req,res,next) => {
   let update=false;
-  BD_LIBROS.forEach(actualizar);
+  BD_ANUNCIO.forEach(actualizar);
 
   function actualizar(item,index){
     if(item.id==req.params.id){
-      BD_LIBROS[index] = {
-        id: BD_LIBROS[index].id,
-        contenido: req.body.contenido || BD_LIBROS[index].contenido,
-        autor: req.body.autor || BD_LIBROS[index].autor,
-        ubicacion: req.body.ubicacion || BD_LIBROS[index].ubicacion,
-        fec_crea: BD_LIBROS[index].fec_crea,
+      BD_ANUNCIO[index] = {
+        id: BD_ANUNCIO[index].id,
+        contenido: req.body.contenido || BD_ANUNCIO[index].contenido,
+        autor: req.body.autor || BD_ANUNCIO[index].autor,
+        ubicacion: req.body.ubicacion || BD_ANUNCIO[index].ubicacion,
+        fec_crea: BD_ANUNCIO[index].fec_crea,
         fec_edi: moment().format()
       }
       update=true;
@@ -126,7 +126,7 @@ acciones.put("/actualizar/:id",(req,res,next) => {
   }
 
   if (update) {
-   res.json({message: `Libro actualizado correctamente.`})
+   res.json({message: `Anuncio actualizado correctamente.`})
   }else{
    res.json({error: `Error al actualizar, favor verificar.`})
  	}
@@ -135,17 +135,17 @@ acciones.put("/actualizar/:id",(req,res,next) => {
 /*Eliminar libro*/
 acciones.delete("/borrar/:id",(req,res,next) => {
   let borrado=false;
-  BD_LIBROS.forEach(eliminar);
+  BD_ANUNCIO.forEach(eliminar);
 
   function eliminar(item,index){
     if(item.id==req.params.id){
-        BD_LIBROS.splice(index, 1);
+        BD_ANUNCIO.splice(index, 1);
         borrado=true;
     };
   }
 
   if (borrado) {
-   res.json({message: `Libro eliminado correctamente.`})
+   res.json({message: `Anuncio eliminado correctamente.`})
   }else{
    res.json({error: `Error al eliminar, favor verificar.`})
   }
