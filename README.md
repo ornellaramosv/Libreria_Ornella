@@ -15,7 +15,7 @@ node js ^8.x.x
 Clona el repositoio
 
 ```
-git clone https://github.com/ornellaramosv/Libreria_Ornella.git
+git clone https://github.com/ornellaramosv/Ornella_Twitter.git
 ```
 
 Instalar dependencias
